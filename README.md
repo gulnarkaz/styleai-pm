@@ -1,48 +1,55 @@
-# StyleGenie AI: Product Management Specification
+# StyleGenie AI: Inclusive Personal Stylist
 
-![Industry: Fashion Tech](https://img.shields.io/badge/Industry-Fashion_Tech-pink)
-![Role: Product Manager](https://img.shields.io/badge/Role-Product_Manager-blue)
-![Focus: AI Ethics & Governance](https://img.shields.io/badge/Focus-AI_Ethics-green)
-
-### 🌟 Обзор проекта
-**StyleGenie AI** — это инновационный AI-ассистент, объединяющий Vision AI и RAG-архитектуру для создания персональных гардеробных решений. Продукт трансформирует процесс онлайн-шопинга, обеспечивая экспертный уровень стайлинга на основе анализа визуальных данных пользователя и актуальных стоков ритейлеров.
-
-**Ключевая цель:** Достижение целевой конверсии **CR 2.2%** и минимизация возвратов через гипер-персонализацию.
+**StyleGenie AI** — это интеллектуальная система персонального стайлинга на базе Vision AI и LLM, разработанная для рынка Fashion Tech. Продукт решает проблему высокого процента возвратов в eCommerce и отсутствия персонализации при подборе гардероба.
 
 ---
 
-### 📂 Структура репозитория
+## Key Product Deliverables
 
-* [**/docs**](./docs) — Стратегия запуска (Staged Rollout), Launch Checklist и Governance Framework.
-* [**/prompts**](./prompts) — Системные инструкции (System Prompts) с встроенными этическими guardrails.
-* [**/scripts**](./scripts) — Автоматизация мониторинга: Python-скрипт для аудита Fairness (порог 15%).
-* [**/analytics**](./analytics) — Спецификация KPI, расчет ROI и план послезапускового мониторинга.
+Проект структурирован по ключевым областям ответственности Product Manager:
 
----
+### 1. Product Discovery & Strategy
+* [**/docs/strategy.md**](./docs/strategy.md) — Дорожная карта (Roadmap), фазы запуска и стратегия MVP.
+* [**/docs/market_analysis.md**](./docs/market_analysis.md) — Анализ рынка Казахстана, сегментация аудитории и конкурентный ландшафт.
+* [**/docs/experiments_log.md**](./docs/experiments_log.md) — Лог Lean-экспериментов: валидация гипотез через Wizard of Oz и Smoke-тесты.
 
-### 🛠 Технологический стек и Продукт
-- **Core AI:** Интеграция мультимодальных моделей (Claude 3.5 Sonnet / GPT-4o).
-- **Architecture:** RAG (Retrieval-Augmented Generation) с использованием векторных баз данных (Pinecone/Weaviate) для работы с каталогами.
-- **Vision AI:** Анализ типа фигуры, цветотипа и стилистических предпочтений по фото.
-- **Compliance:** Проектирование с учетом GDPR и EU AI Act.
+### 2. AI Architecture & Technical Specs
+* [**/docs/architecture.md**](./docs/architecture.md) — Схема ML-пайплайна: Vision AI + RAG (Retrieval-Augmented Generation).
+* [**/data-schemas/product_metadata.json**](./data-schemas/product_metadata.json) — Техническая структура данных для интеграции с каталогом.
+* [**/prompts/system_instructions.md**](./prompts/system_instructions.md) — Конфигурация системных инструкций для управления Persona и логикой ИИ.
 
----
+### 3. Analytics & Business Performance
+* [**/analytics/ab_test_design.md**](./analytics/ab_test_design.md) — Методология тестирования влияния ИИ-обоснований на конверсию (CR).
+* [**/analytics/kpi_dashboard_spec.md**](./analytics/kpi_dashboard_spec.md) — Спецификация дашборда для мониторинга бизнес-метрик и здоровья ИИ.
+* [**/docs/business_model.md**](./docs/business_model.md) — Юнит-экономика ($COGS_{AI}$), связь ML-метрик с прибылью и операционные плейбуки.
 
-### ⚖️ Этический аудит и Governance (Ключевая экспертиза)
-Проект прошел комплексный этический аудит, что критично для работы с изображениями людей:
-- **Fairness Threshold:** Контроль разброса качества рекомендаций между группами (Plus-size, Standard, Petite) с лимитом отклонения **< 15%**.
-- **Data Privacy:** Внедрена система анонимизации лиц и протокол «Цифрового забвения».
-- **Transparency:** Текстовое обоснование каждой рекомендации («Почему это вам подходит»).
-- **Ethics Committee:** Сформированная структура принятия решений (PM, Data Scientist, Legal Advisor).
-
----
-
-### 📈 Бизнес-эффект и Рынок
-- **Целевой рынок:** Центральная Азия (Казахстан), женщины 25–40 лет.
-- **Конверсия:** Ожидаемый рост CR на **15–35%** по сравнению с базовыми алгоритмами.
-- **ROI:** Оценка возврата инвестиций через 6 месяцев эксплуатации (анализ снижения операционных затрат на возвраты).
+### 4. AI Governance & Ethics
+* [**/docs/governance.md**](./docs/governance.md) — Фреймворк по управлению этическими рисками и Fairness Gap.
+* [**/prompts/guardrails.md**](./prompts/guardrails.md) — Жесткие ограничения (Safety constraints) для предотвращения предвзятости.
+* [**/scripts/bias_monitor.py**](./scripts/bias_monitor.py) — Прототип скрипта для автоматического контроля этических метрик.
+* [**/scripts/ab_test_analyzer.py**](./scripts/ab_test_analyzer.py) — Скрипт для расчета статистической значимости экспериментов.
 
 ---
 
-### 📫 Контакты
-**Gulnar Kaz** *AI Product Manager* [LinkedIn](https://www.linkedin.com/in/gulnara-bakirova-7a341918) | [GitHub](https://github.com/gulnarkaz)
+## Tech Stack & Tools
+* **AI/ML:** Vision AI (silhouette analysis), LLM (reasoning), RAG (context retrieval).
+* **Data:** Vector Databases (Pinecone/Weaviate), JSON Schemas.
+* **Product:** Miro (Visual Roadmap), Python (Analytics), Google Analytics (KPI tracking).
+
+---
+
+## Core Performance Targets (KPIs)
+* **Conversion Rate (CR):** 2.2% (+15-20% от базового уровня).
+* **Return Rate Reduction:** -15% за счет точности подбора.
+* **Fairness Gap:** < 15% (разрыв в качестве сервиса между разными типами фигур).
+* **Average Order Value (AOV):** +10% через генерацию полных образов (Full Looks).
+
+---
+
+## Visual Concepts & Brainstorming
+* [**Miro Board**](https://miro.com/app/board/uXjVGfSebtI=/) — Визуализация концепции, фундамента данных и циклов аудита.
+
+---
+
+## Contact
+**Gulnar Kaz** — AI Product Manager www.linkedin.com/in/gulnara-bakirova-7a341918
