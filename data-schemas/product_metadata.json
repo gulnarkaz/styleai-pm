@@ -1,1 +1,28 @@
-
+{
+  "product_id": "string (UUID)",
+  "brand_info": {
+    "name": "string",
+    "tier": "Budget | Mid-range | Premium",
+    "is_inclusive": "boolean"
+  },
+  "attributes": {
+    "category": "Top | Bottom | Outerwear | Accessory",
+    "silhouette_compatibility": ["Hourglass", "Pear", "Rectangle", "Apple", "Inverted Triangle"],
+    "color_season": ["Deep Autumn", "Cool Summer", "Warm Spring", "Light Winter"],
+    "material": "string",
+    "style_tags": ["Casual", "Business", "Evening", "Minimalist"]
+  },
+  "metrics": {
+    "conversion_rate_historical": "float (0.0 - 1.0)",
+    "return_rate_historical": "float (0.0 - 1.0)",
+    "sustainability_score": "int (1-10)"
+  },
+  "inventory": {
+    "in_stock": "boolean",
+    "size_range": ["XXS", "XS", "S", "M", "L", "XL", "XXL", "Plus"]
+  },
+  "vector_metadata": {
+    "embedding_version": "v2.1",
+    "last_synced_at": "ISO8601 Timestamp"
+  }
+}
