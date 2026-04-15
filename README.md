@@ -1,5 +1,3 @@
-# styleai-pm
-Product specification, ethical governance framework, and bias monitoring logic for StyleGenie AI (Fashion Tech).
 # StyleGenie AI: Product Management Specification
 
 ![Industry: Fashion Tech](https://img.shields.io/badge/Industry-Fashion_Tech-pink)
