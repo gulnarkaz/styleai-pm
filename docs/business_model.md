@@ -1,1 +1,34 @@
-Business Model & Operational ExcellenceДокумент описывает связку технических параметров ML с финансовыми показателями бизнеса и протоколы реагирования на изменения метрик.1. ML-to-Business MappingТрансляция технических метрик в деньги.ML MetricProxy MetricBusiness OutcomePrecision @ KCTR↑ Conversion Rate (CR)Size AccuracyReturn Rate↑ Net Margin (экономия на логистике)DiversitySession Length↑ LTV (удержание)Inference LatencyDrop-off Rate↑ Retention2. Unit Economics FrameworkМы оцениваем успех каждой транзакции через прибыльность юнита ($Customer$).Формула прибыли:$$Profit = (AOV \times CR \times Margin) - CAC - COGS_{AI} + Savings_{Returns}$$$COGS_{AI}$: Инфраструктурные затраты (API tokens, GPU).$Savings_{Returns}$: Снижение операционных затрат на возврат товара (цель: -15%).Target: $LTV / CAC > 3$.3. Operational PlaybooksСтандартные операционные процедуры (SOP) при отклонении метрик.Scenario A: Low Conversion (CR < 1.8%)Auditing: Проверка Hallucination Rate (галлюцинации ИИ) и релевантности RAG текущему сезону.Prompt Engineering: Оптимизация системного промпта для усиления аргументации в блоке "Why it fits".Experiment: А/Б тест обновленной логики рекомендаций.Scenario B: Ethics/Bias Alert (Fairness Gap > 15%)Freeze: Немедленная остановка деплоя новых версий.Data Audit: Проверка репрезентативности товаров для сегментов Plus-size и Petite в базе данных.Re-weighting: Искусственное повышение весов (boost) для недопредставленных групп в поисковой выдаче.Scenario C: High Latency (> 3.0s)Model Distillation: Переход на более легкие модели (GPT-4o mini) для первичного скоринга.Caching: Внедрение кэша на популярные запросы и типы фигур.
+Business Model & Operational Excellence
+Документ описывает связку технических параметров ML с финансовыми показателями бизнеса и протоколы реагирования на изменения метрик.
+
+1. ML-to-Business Mapping
+Трансляция технических метрик в деньги.
+ML Metric	Proxy Metric	Business Outcome
+Precision @ K	CTR	↑ Conversion Rate (CR)
+Size Accuracy	Return Rate	↑ Net Margin (экономия на логистике)
+Diversity	Session Length	↑ LTV (удержание)
+Inference Latency	Drop-off Rate	↑ Retention
+
+2. Unit Economics FrameworkМы оцениваем успех каждой транзакции через прибыльность юнита ($Customer$).Формула прибыли:$$Profit = (AOV \times CR \times Margin) - CAC - COGS_{AI} + Savings_{Returns}$$$COGS_{AI}$: Инфраструктурные затраты (API tokens, GPU).$Savings_{Returns}$: Снижение операционных затрат на возврат товара (цель: -15%).Target: $LTV / CAC > 3$.
+
+3. Operational Playbooks
+Стандартные операционные процедуры (SOP) при отклонении метрик.
+
+Scenario A: Low Conversion (CR < 1.8%)
+Auditing: Проверка Hallucination Rate (галлюцинации ИИ) и релевантности RAG текущему сезону.
+
+Prompt Engineering: Оптимизация системного промпта для усиления аргументации в блоке "Why it fits".
+
+Experiment: А/Б тест обновленной логики рекомендаций.
+
+Scenario B: Ethics/Bias Alert (Fairness Gap > 15%)
+Freeze: Немедленная остановка деплоя новых версий.
+
+Data Audit: Проверка репрезентативности товаров для сегментов Plus-size и Petite в базе данных.
+
+Re-weighting: Искусственное повышение весов (boost) для недопредставленных групп в поисковой выдаче.
+
+Scenario C: High Latency (> 3.0s)
+Model Distillation: Переход на более легкие модели (GPT-4o mini) для первичного скоринга.
+
+Caching: Внедрение кэша на популярные запросы и типы фигур.
